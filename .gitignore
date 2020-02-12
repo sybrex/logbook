@@ -1,3 +1,6 @@
+# IDE
+.idea/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -127,3 +130,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Media and static files
+static/*
+!static/.gitkeep
+media/*
+!media/.gitkeep
