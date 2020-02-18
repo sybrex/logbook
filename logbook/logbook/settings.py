@@ -40,6 +40,7 @@ ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'logbook.viktors.info']
 
 INSTALLED_APPS = [
     'api.apps.ApiConfig',
+    'logbook.apps.LogbookConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
