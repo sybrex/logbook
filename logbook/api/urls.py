@@ -5,5 +5,5 @@ from . import views
 app_name = 'api'
 
 urlpatterns = [
-
+    path('users', views.users, name='users'),
 ]

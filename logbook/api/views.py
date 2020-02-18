@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from django.http import JsonResponse
+from django.core.serializers import serialize
+from logbook.models import User
 
-# Create your views here.
+
+def users(request):
+    users = User.objects.all()
+    return JsonResponse(serialize('json', users), safe=False)
