@@ -6,11 +6,19 @@ class User(models.Model):
     class Meta:
         db_table = 'users'
 
+    STATUS_ACTIVE = 1
+    STATUS_DISABLED = 2
+    STATUSES = [
+        (STATUS_ACTIVE, 'Active'),
+        (STATUS_DISABLED, 'Disabled')
+    ]
+
     name = models.CharField(max_length=50)
     phone = models.CharField(max_length=15)
+    status = models.IntegerField(choices=STATUSES, default=STATUS_ACTIVE)
 
     def __str__(self):
-        return self.name + ' ' + self.phone
+        return f'{self.name} {self.phone}'
 
 
 class Topic(models.Model):
@@ -33,10 +41,10 @@ class Story(models.Model):
         verbose_name_plural = 'stories'
         ordering = ['-created']
 
-    TYPE_IMAGE = 'IMAGE'
-    TYPE_ALBUM = 'ALBUM'
-    TYPE_VIDEO = 'VIDEO'
-    TYPE_TEXT = 'TEXT'
+    TYPE_IMAGE = 1
+    TYPE_ALBUM = 2
+    TYPE_VIDEO = 3
+    TYPE_TEXT = 4
     MEDIA_TYPES = [
       (TYPE_IMAGE, 'Image'),
       (TYPE_ALBUM, 'Album'),
@@ -44,7 +52,7 @@ class Story(models.Model):
       (TYPE_TEXT, 'Text')
     ]
 
-    type = models.CharField(max_length=20, choices=MEDIA_TYPES, default=TYPE_IMAGE)
+    type = models.IntegerField(choices=MEDIA_TYPES, default=TYPE_IMAGE)
     description = models.TextField(default='')
     topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -52,4 +60,4 @@ class Story(models.Model):
     created = models.DateTimeField(auto_now_add=True, blank=True)
 
     def __str__(self):
-        return self.type
+        return f'Story {self.type}'

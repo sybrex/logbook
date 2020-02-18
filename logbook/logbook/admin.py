@@ -3,7 +3,7 @@ from .models import User, Topic, Story
 
 
 class UserAdmin(admin.ModelAdmin):
-    list_display = ('name', 'phone')
+    list_display = ('name', 'phone', 'status')
 
 
 class TopicAdmin(admin.ModelAdmin):
