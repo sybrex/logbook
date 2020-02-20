@@ -41,6 +41,7 @@ ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'logbook.viktors.info']
 INSTALLED_APPS = [
     'api.apps.ApiConfig',
     'logbook.apps.LogbookConfig',
+    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -127,6 +128,13 @@ USE_L10N = True
 
 USE_TZ = True
 
+
+# REST framework
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
