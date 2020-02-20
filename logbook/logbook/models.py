@@ -54,8 +54,8 @@ class Story(models.Model):
 
     type = models.IntegerField(choices=MEDIA_TYPES, default=TYPE_IMAGE)
     description = models.TextField(default='')
-    topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    topic = models.ForeignKey(Topic, related_name='stories', on_delete=models.CASCADE)
+    user = models.ForeignKey(User, related_name='stories', on_delete=models.CASCADE)
     content = models.TextField(default='')
     created = models.DateTimeField(auto_now_add=True, blank=True)
 
