@@ -2,7 +2,7 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
 from logbook.models import User, Topic, Story
-from .serializers import UserSerializer, TopicListSerializer, TopicSerializer, StorySerializer
+from .serializers import UserSerializer, TopicListSerializer, TopicSerializer, StorySerializer, StoryListSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -10,15 +10,16 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
 
 
-class TopicViewSet(viewsets.ViewSet):
+class TopicViewSet(viewsets.ModelViewSet):
+    queryset = Topic.objects.all()
+    serializer_class = TopicSerializer
+
     def list(self, request):
-        queryset = Topic.objects.all()
-        serializer = TopicListSerializer(queryset, many=True)
+        serializer = TopicListSerializer(self.queryset, many=True)
         return Response(serializer.data)
 
     def retrieve(self, request, pk=None):
-        queryset = Topic.objects.all()
-        topic = get_object_or_404(queryset, pk=pk)
+        topic = get_object_or_404(self.queryset, pk=pk)
         serializer = TopicSerializer(topic)
         return Response(serializer.data)
 
@@ -26,3 +27,7 @@ class TopicViewSet(viewsets.ViewSet):
 class StoryViewSet(viewsets.ModelViewSet):
     queryset = Story.objects.all()
     serializer_class = StorySerializer
+
+    def list(self, request):
+        serializer = StoryListSerializer(self.queryset, many=True)
+        return Response(serializer.data)
