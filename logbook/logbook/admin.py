@@ -8,6 +8,7 @@ class UserAdmin(admin.ModelAdmin):
 
 class TopicAdmin(admin.ModelAdmin):
     list_display = ('created', 'title')
+    search_fields = ('title',)
 
 
 class StoryAdmin(admin.ModelAdmin):
