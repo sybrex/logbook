@@ -28,5 +28,9 @@ class StoryViewSet(viewsets.ModelViewSet):
     serializer_class = StorySerializer
 
     def list(self, request):
-        serializer = StoryListSerializer(self.queryset, many=True)
+        queryset = Story.objects.all()
+        topic_id = request.query_params.get('topic', None)
+        if topic_id is not None:
+            queryset = queryset.filter(topic_id=int(topic_id))
+        serializer = StoryListSerializer(queryset, many=True)
         return Response(serializer.data)
