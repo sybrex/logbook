@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from rest_framework import filters
 from django.shortcuts import get_object_or_404
 from logbook.models import User, Topic, Story
-from .serializers import UserSerializer, TopicListSerializer, TopicSerializer, StorySerializer, StoryListSerializer
+from .serializers import UserSerializer, TopicListSerializer, TopicSerializer, StorySerializer, StoryListSerializer, StoryUpdateSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -26,6 +26,12 @@ class TopicViewSet(viewsets.ModelViewSet):
 class StoryViewSet(viewsets.ModelViewSet):
     queryset = Story.objects.all()
     serializer_class = StorySerializer
+
+    def get_serializer_class(self):
+        serializer_class = self.serializer_class
+        if self.request.method == 'PUT':
+            serializer_class = StoryUpdateSerializer
+        return serializer_class
 
     def list(self, request):
         queryset = Story.objects.all()

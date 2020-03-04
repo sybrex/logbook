@@ -20,6 +20,12 @@ class StorySerializer(serializers.ModelSerializer):
         fields = ['id', 'type', 'description', 'topic', 'user', 'content', 'created']
 
 
+class StoryUpdateSerializer(StorySerializer):
+    class Meta(StorySerializer.Meta):
+        model = Story
+        read_only_fields = ['id', 'type', 'topic', 'user', 'content', 'created']
+
+
 class StoryListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Story
