@@ -5,7 +5,7 @@ from logbook.models import User, Topic, Story
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'name', 'phone', 'status']
+        fields = ['id', 'telegram_id', 'first_name', 'last_name', 'username', 'status']
 
 
 class TopicListSerializer(serializers.ModelSerializer):

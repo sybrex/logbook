@@ -9,6 +9,8 @@ from .serializers import UserSerializer, TopicListSerializer, TopicSerializer, S
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    filter_backends = (filters.SearchFilter,)
+    search_fields = ['=telegram_id']
 
 
 class TopicViewSet(viewsets.ModelViewSet):

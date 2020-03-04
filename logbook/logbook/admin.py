@@ -3,7 +3,7 @@ from .models import User, Topic, Story
 
 
 class UserAdmin(admin.ModelAdmin):
-    list_display = ('name', 'phone', 'status')
+    list_display = ('first_name', 'last_name', 'username', 'telegram_id', 'status')
 
 
 class TopicAdmin(admin.ModelAdmin):

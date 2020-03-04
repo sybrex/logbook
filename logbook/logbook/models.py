@@ -13,12 +13,14 @@ class User(models.Model):
         (STATUS_DISABLED, 'Disabled')
     ]
 
-    name = models.CharField(max_length=50)
-    phone = models.CharField(max_length=15)
+    telegram_id = models.IntegerField(unique=True)
+    first_name = models.CharField(max_length=50, default='')
+    last_name = models.CharField(max_length=50, default='')
+    username = models.CharField(max_length=50, default='')
     status = models.IntegerField(choices=STATUSES, default=STATUS_ACTIVE)
 
     def __str__(self):
-        return f'{self.name} {self.phone}'
+        return f'{self.telegram_id}'
 
 
 class Topic(models.Model):
