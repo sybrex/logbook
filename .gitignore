@@ -135,5 +135,7 @@ dmypy.json
 # Media and static files
 static/*
 !static/.gitkeep
-media/*
-!media/.gitkeep
+media/images/*
+!media/images/.gitkeep
+media/videos/*
+!media/videos/.gitkeep

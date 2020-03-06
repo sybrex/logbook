@@ -1,4 +1,5 @@
 from django.db import models
+from . import services
 
 
 class User(models.Model):
@@ -60,6 +61,12 @@ class Story(models.Model):
     user = models.ForeignKey(User, related_name='stories', on_delete=models.CASCADE)
     content = models.TextField(default='')
     created = models.DateTimeField(auto_now_add=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        if self.type == self.TYPE_IMAGE:
+            img = services.download_image(self.content)
+            self.content = img
+        super(Story, self).save(*args, **kwargs)
 
     def __str__(self):
         return f'Story {self.type}'
