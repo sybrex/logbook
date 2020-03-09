@@ -23,3 +23,15 @@ def resize_image(full_name):
     img = Image.open(full_name)
     img.thumbnail((624, 800), Image.ANTIALIAS)
     img.save(full_name, progressive=True, quality=100)
+
+
+def download_video(url):
+    res = requests.get(url, stream=True)
+    if res.status_code == 200:
+        ext = url.split('.')[-1]
+        base_name = uuid.uuid4().hex + '.' + ext
+        full_name = os.path.join(settings.MEDIA_ROOT, 'videos/', base_name)
+        if not os.path.exists(full_name):
+            with open(full_name, 'wb') as out_file:
+                copyfileobj(res.raw, out_file)
+        return base_name

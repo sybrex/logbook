@@ -66,6 +66,9 @@ class Story(models.Model):
         if self.type == self.TYPE_IMAGE:
             img = services.download_image(self.content)
             self.content = img
+        if self.type == self.TYPE_VIDEO:
+            video = services.download_video(self.content)
+            self.content = video
         super(Story, self).save(*args, **kwargs)
 
     def __str__(self):
