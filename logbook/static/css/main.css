@@ -29,6 +29,10 @@ body {
     padding: 0px 15px;
 }
 
+.content h1 {
+    padding: 0px 15px;
+}
+
 .icon-desktop:before,
 .icon-menu-close:before,
 .icon-menu:before,

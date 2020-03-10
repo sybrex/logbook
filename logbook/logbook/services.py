@@ -4,6 +4,7 @@ import uuid
 from django.conf import settings
 from PIL import Image
 from shutil import copyfileobj
+from . import models
 
 
 def download_image(url):
@@ -35,3 +36,8 @@ def download_video(url):
             with open(full_name, 'wb') as out_file:
                 copyfileobj(res.raw, out_file)
         return base_name
+
+
+def get_menu():
+    topics = models.Topic.objects.all()
+    return topics

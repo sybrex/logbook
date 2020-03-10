@@ -2,7 +2,14 @@
 {% load static %}
 
 {% block content %}
-<div class="page">
-    <h1 class="page-title">Topic stories</h1>
-</div>
+<h1>{{ topic.title }}</h1>
+
+{% if stories %}
+{% for story in stories %}
+<p>
+    {{ story.description }}
+</p>
+{% endfor %}
+{% endif %}
+
 {% endblock %}
