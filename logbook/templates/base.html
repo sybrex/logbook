@@ -1,8 +1,19 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en" class="nav-no-js">
   {% include 'head.html' %}
-  <body class="theme-base">
-    <div class="content container">
+
+  <body>
+    <header>
+      <h1>Logbook</h1>
+    </header>
+
+    <a href="#" class="nav-button">Menu</a>
+
+    {% include 'menu.html' %}
+
+    <a href="#" class="nav-close">Close Menu</a>
+
+    <div class="content">
       {% block content %}{% endblock %}
     </div>
     {% include 'footer.html' %}
