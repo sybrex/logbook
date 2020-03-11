@@ -21,9 +21,14 @@ def download_image(url):
 
 
 def resize_image(full_name):
-    img = Image.open(full_name)
-    img.thumbnail((624, 800), Image.ANTIALIAS)
-    img.save(full_name, progressive=True, quality=100)
+    sizes = [640, 750, 1080]
+    max_height = 1350
+    basename = os.path.basename(full_name)
+    for max_width in sizes:
+        img = Image.open(full_name)
+        img.thumbnail((max_width, max_height), Image.ANTIALIAS)
+        img_name = os.path.join(settings.MEDIA_ROOT, 'images/', f'{max_width}_{basename}')
+        img.save(img_name, progressive=True, quality=100)
 
 
 def download_video(url):

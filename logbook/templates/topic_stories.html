@@ -2,14 +2,34 @@
 {% load static %}
 
 {% block content %}
-<h1>{{ topic.title }}</h1>
+    <h2>{{ topic.title }}</h2>
 
-{% if stories %}
-{% for story in stories %}
-<p>
-    {{ story.description }}
-</p>
-{% endfor %}
-{% endif %}
+    {% if stories %}
+    {% for story in stories %}
+        <h3>
+        #{{ story.id }}
+        {% if story.description %}
+            {{ story.description }}
+        {% endif %}
+        </h3>
+
+        {% if story.type == 1 %}
+            <div>
+                <img src="{{ MEDIA_URL }}images/{{ story.content }}" width="100%"
+                     srcset="{{ MEDIA_URL }}images/640_{{ story.content }} 640w,
+                             {{ MEDIA_URL }}images/750_{{ story.content }} 750w,
+                             {{ MEDIA_URL }}images/1080_{{ story.content }} 1080w">
+            </div>
+        {% elif story.type == 2 %}
+
+        {% elif story.type == 3 %}
+            <div>
+                <video controls width="100%" src="{{ MEDIA_URL }}/videos/{{ story.content }}"></video>
+            </div>
+        {% elif story.type == 4 %}
+            <p>{{ story.content }}</p>
+        {% endif %}
+    {% endfor %}
+    {% endif %}
 
 {% endblock %}

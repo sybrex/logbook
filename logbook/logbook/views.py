@@ -6,7 +6,8 @@ from .services import get_menu
 
 def latest_stories(request):
     menu = get_menu()
-    return render(request, 'latest_stories.html', {'menu': menu})
+    stories = Story.objects.all()
+    return render(request, 'latest_stories.html', {'menu': menu, 'stories': stories})
 
 
 def topic_stories(request, id):

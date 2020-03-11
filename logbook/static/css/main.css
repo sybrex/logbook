@@ -25,12 +25,25 @@ body {
 	line-height: 2.4rem;
 }
 
-.content p {
-    padding: 0px 15px;
+h1 a {
+  color: #A69A94;
+  text-decoration: none;
 }
 
-.content h1 {
-    padding: 0px 15px;
+.content p {
+    margin: 0px;
+    padding: 0px 10px;
+}
+
+.content h2 {
+    margin: 0px;
+    padding: 10px 10px;
+}
+
+.content h3 {
+    margin: 0px;
+    padding: 0px 10px;
+    font-size: 1.6rem;
 }
 
 .icon-desktop:before,
@@ -109,7 +122,6 @@ header h1 {
 }
 
 header h1:before {
-	content: "\E007";
 	margin-right: 8px;
 }
 
