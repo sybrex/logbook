@@ -26,7 +26,7 @@ body {
 }
 
 h1 a {
-  color: #A69A94;
+  color: #AAA;
   text-decoration: none;
 }
 
@@ -111,8 +111,8 @@ header {
 	z-index: 901;
 	padding-left: 10px;
 	line-height: 4.4rem;
-	background: #26201C;
-	color: #A69A94;
+	background: #171C1F;
+	color: #AAA;
 }
 
 header h1 {
@@ -136,8 +136,8 @@ header h1:before {
 	cursor: pointer;
 	text-decoration: none;
 	line-height: 4.4rem;
-	background: #26201C;
-	color: #A69A94;
+	background: #171C1F;
+	color: #AAA;
 }
 
 .nav-button:before,
@@ -169,13 +169,13 @@ header h1:before {
 .nav {
 	padding-top: 4.4rem;
 	line-height: 4.4rem;
-	background: #26201C;
-	color: #A69A94;
+	background: #171C1F;
+	color: #AAA;
 }
 
 .nav ul {
 	border-radius: 0 0 6px 6px;
-	background: #26201C;
+	background: #171C1F;
 }
 
 .nav ul ul {
@@ -201,8 +201,8 @@ header h1:before {
 
 .nav li:hover > a,
 .nav li.nav-active > a {
-	color: #923600;
-	background: #2E2722;
+	color: #AAA;
+	background: #171C1F;
 }
 
 .nav .nav-submenu > ul {
@@ -219,7 +219,7 @@ header h1:before {
 .nav a:visited {
 	border-radius: 6px;
 	padding: 0 15px 1px;
-	color: #8C827D;
+	color: #AAA;
 	text-decoration: none;
 }
 

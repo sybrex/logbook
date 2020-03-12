@@ -5,9 +5,10 @@
     <h2>{{ topic.title }}</h2>
 
     {% if stories %}
+    <div class="infinite-container">
     {% for story in stories %}
-        <h3>
-        #{{ story.id }}
+        <div class="infinite-item">
+        <h3>#{{ story.id }}
         {% if story.description %}
             {{ story.description }}
         {% endif %}
@@ -29,7 +30,18 @@
         {% elif story.type == 4 %}
             <p>{{ story.content }}</p>
         {% endif %}
+        </div>
     {% endfor %}
+    </div>
+
+    {% if stories.has_next %}
+    <a class="infinite-more-link" href="{% url 'topic_stories' topic.id %}?page={{ stories.next_page_number }}"></a>
+    {% endif %}
+    <div class="d-flex justify-content-center" style="display:none;">
+        <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
     {% endif %}
 
 {% endblock %}
