@@ -21,6 +21,7 @@ html {
 }
 
 body {
+    max-width: 980px;
 	font-size: 1.4rem;
 	line-height: 2.4rem;
 }
