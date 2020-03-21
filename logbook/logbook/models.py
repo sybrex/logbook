@@ -63,12 +63,13 @@ class Story(models.Model):
     created = models.DateTimeField(auto_now_add=True, blank=True)
 
     def save(self, *args, **kwargs):
-        if self.type == self.TYPE_IMAGE:
-            img = services.download_image(self.content)
-            self.content = img
-        if self.type == self.TYPE_VIDEO:
-            video = services.download_video(self.content)
-            self.content = video
+        if not self.id:
+            if self.type == self.TYPE_IMAGE:
+                img = services.download_image(self.content)
+                self.content = img
+            if self.type == self.TYPE_VIDEO:
+                video = services.download_video(self.content)
+                self.content = video
         super(Story, self).save(*args, **kwargs)
 
     def __str__(self):
