@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'api.apps.ApiConfig',
     'logbook.apps.LogbookConfig',
     'rest_framework',
+    'rest_framework.authtoken',
+    'drf_yasg',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -133,8 +135,24 @@ USE_TZ = True
 # REST framework
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
-        #'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ]
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+}
+
+# drf-yasg
+SWAGGER_SETTINGS = {
+    'USE_SESSION_AUTH': False,
+    'SECURITY_DEFINITIONS': {
+        'Token': {
+            'in': 'header',
+            'name': 'Authorization',
+            'type': 'apiKey',
+            'description': 'Prefix the value with \"Token\" and space e.g \"Token abc123\"'
+        }
+    }
 }
 
 # Static files (CSS, JavaScript, Images)
