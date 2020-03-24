@@ -3,6 +3,9 @@ Logbook
 
 Setup
 -----
+Install deps with pipenv
+
+Clone env.ini.dist into env.ini and set your database settings there
 
 Systemd
 -------
@@ -33,7 +36,7 @@ server {
       proxy_set_header X-Forwarded-Server $host;
       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
       proxy_set_header X-Forwarded-Proto $scheme;
-      proxy_pass http://127.0.0.1:8001;
+      proxy_pass http://127.0.0.1:8002;
     }
 
     location /static {
