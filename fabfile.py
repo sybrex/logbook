@@ -52,8 +52,8 @@ def deploy(c, branch='master', migrate=True, deps=True, collectstatic=False):
             c.run('pipenv install')
         if migrate:
             print('Migrating database')
-            c.run('pipenv run python manage.py migrate')
+            c.run('pipenv run python logbook/manage.py migrate')
         if collectstatic:
             print('Running collectstatic')
-            c.run('pipenv run python manage.py collectstatic')
+            c.run('pipenv run python logbook/manage.py collectstatic')
         c.run(f'sudo service {SYSTEMD_SERVICE} restart')
