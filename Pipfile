@@ -16,6 +16,8 @@ djangorestframework = "*"
 markdown = "*"
 requests = "*"
 drf-yasg = "*"
+fabric = "*"
+patchwork = "*"
 
 [requires]
 python_version = "3.7"
