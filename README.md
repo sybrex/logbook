@@ -7,6 +7,18 @@ Install deps with pipenv
 
 Clone env.ini.dist into env.ini and set your database settings there
 
+~/.ssh/config
+-----------
+```
+Host github.com
+IdentityFile ~/.ssh/github
+```
+
+Fabric deployment
+-----------------
+pipenv run fab --list
+pipenv run fab --help deploy
+
 Systemd
 -------
 /etc/systemd/system/logbook.service
