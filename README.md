@@ -28,9 +28,10 @@ Description=uvicorn server for logbook
 After=network.target
 
 [Service]
-User=web
+User=deployer
 Group=nginx
-ExecStart=/path/to/logbook/uvicorn.sh
+WorkingDirectory=/srv/www/logbook/logbook
+ExecStart=/usr/local/bin/pipenv run uvicorn --port=8001 logbook.asgi:application --reload
 ```
 
 Nginx
