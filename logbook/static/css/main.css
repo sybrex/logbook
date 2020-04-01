@@ -293,10 +293,6 @@ header {
 	position: relative;
 }
 
-header h1:before {
-	content: "\E001";
-}
-
 .nav-button {
 	display: none;
 }
