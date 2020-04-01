@@ -37,7 +37,7 @@ DEBUG = env['django']['debug'] == 'yes'
 
 USE_X_FORWARDED_HOST = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'logbook.viktors.info']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', env['project']['host']]
 
 # Application definition
 
