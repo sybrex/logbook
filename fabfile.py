@@ -62,7 +62,7 @@ def deploy(c, branch='master', migrate=True, deps=True, collectstatic=False):
         if collectstatic:
             print('Running collectstatic')
             c.run('pipenv run python logbook/manage.py collectstatic')
-            service(c, SYSTEMD_SERVICE, 'restart')
+        service(c, SYSTEMD_SERVICE, 'restart')
 
 
 @task
