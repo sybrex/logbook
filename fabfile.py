@@ -23,7 +23,7 @@ def install(c):
     c.run(f'mkdir {PROJECT_PATH}')
     with c.cd(PROJECT_PATH):
         c.run(f'git clone {GIT_REPOSITORY} .')
-        c.run('export PIPENV_VENV_IN_PROJECT="enabled" && pipenv install')
+        c.run('export PIPENV_VENV_IN_PROJECT=1 && pipenv install')
 
 
 @task
